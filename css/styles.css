@@ -567,6 +567,7 @@ button:focus {
   padding: 0;
   margin: 0 0 20px 0;
 }
+
 .form-box label {
   display: flex;
   flex-direction: column;
@@ -576,6 +577,7 @@ button:focus {
   color: var(--third-color);
   padding-bottom: 4px;
 }
+
 .form-box input {
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
@@ -583,24 +585,25 @@ button:focus {
   width: 448px;
   margin-bottom: 10px;
   padding: 0 0 0 42px;
-  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+.form-box input:active {
+  border: 1px solid var(--backlight-color);
+}
+
 .form-box input:hover {
   border: 1px solid var(--backlight-color);
 }
 .form-box input:focus {
   border: 1px solid var(--backlight-color);
 }
-.form-box input:focus-visible {
-  border: 1px solid var(--backlight-color);
-}
+
 .form-box textarea {
   height: 120px;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
   padding: 12px 16px;
   resize: none;
-  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .form-box textarea:hover {
   border: 1px solid var(--backlight-color);
@@ -619,23 +622,48 @@ button:focus {
   position: absolute;
   top: 11px;
   left: 12px;
-  fill: var(--main-color);
+  fill: currentColor;
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .form-icon-svg:hover {
   fill: var(--backlight-color);
 }
 .form-terms {
-  display: inline-block;
-  text-align: center;
   margin-bottom: 30px;
   font-size: 14px;
   line-height: 1.71;
   color: var(--third-color);
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  gap: 8px;
+}
+.form-terms input[type='checkbox'] {
+  margin: 0;
+  appearance: none;
+  width: 16px;
 }
 .form-terms-links {
+  position: relative;
   color: var(--backlight-color);
   text-decoration: underline;
+}
+
+.form-terms-box {
+  position: absolute;
+  border-radius: 2px;
+}
+.form-terms-box:hover,
+.form-terms-box:focus {
+  fill: var(--backlight-color);
+}
+
+.form-terms-svg {
+  position: absolute;
+  opacity: 0;
+}
+.form-terms input[type='checkbox']:checked + .form-terms-svg {
+  opacity: 1;
 }
 .form-button-send {
   display: flex;
@@ -658,11 +686,14 @@ button:focus {
   justify-content: center;
   padding-left: 16px;
   background-color: var(--principal-color);
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .border-mail:hover,
 .border-mail:focus {
   background-color: var(--backlight-color);
+  border: 1px solid var(--backlight-color);
 }
 .border-mail::placeholder {
   color: rgba(255, 255, 255, 0.6);
