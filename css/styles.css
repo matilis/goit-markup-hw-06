@@ -11,9 +11,7 @@
   --border-gallery: #eeeeee;
   --border-customers: #afb1b8;
 }
-/* :focus {
-  outline: none;
-} */
+
 body {
   font-family: 'Roboto', sans-serif;
   color: #212121;
@@ -35,6 +33,7 @@ img {
   max-width: 100%;
   height: auto;
 }
+
 .container {
   width: 1200px;
   margin: 0 auto;
@@ -189,6 +188,7 @@ a {
 .button1:focus {
   color: var(--main-color);
   background-color: var(--team-color);
+  outline: none;
 }
 
 .button2 {
@@ -211,13 +211,14 @@ a {
 .button2:focus {
   background-color: var(--backlight-color);
   color: var(--background-color);
+  outline: none;
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
 }
-button:focus {
+/* button:focus {
   background-color: var(--backlight-color);
   outline: none;
-}
+} */
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -309,6 +310,7 @@ button:focus {
 .customers-box:hover,
 .customers-box:focus {
   color: var(--backlight-color);
+  outline: none;
 }
 .customers-icon {
   fill: currentColor;
@@ -337,6 +339,7 @@ button:focus {
 .back-icon:focus {
   background-color: var(--backlight-color);
   color: var(--background-color);
+  outline: none;
 }
 .social-icon {
   fill: currentColor;
@@ -491,6 +494,7 @@ button:focus {
 .back-icon-footer:hover,
 .back-icon-footer:focus {
   background-color: var(--backlight-color);
+  outline: none;
 }
 .social-icon-footer {
   fill: currentColor;
@@ -504,8 +508,6 @@ button:focus {
   width: 528px;
   height: 581px;
   background-color: var(--background-color);
-  display: flex;
-  justify-content: flex-end;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
@@ -530,6 +532,8 @@ button:focus {
 
 .button-close {
   position: absolute;
+  top: 8px;
+  left: 490px;
   width: 30px;
   height: 30px;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -538,19 +542,25 @@ button:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 8px;
 }
 .button-close:hover,
 .button-close:focus {
+  outline: none;
   background-color: var(--backlight-color);
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal-form {
   display: flex;
   flex-direction: column;
-  width: 100%;
   margin: 40px;
   border: none;
+}
+.form-box {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  padding: 0;
+  margin: 0 0 20px 0;
 }
 .form-title {
   margin-bottom: 12px;
@@ -560,109 +570,110 @@ button:focus {
   text-align: center;
   color: var(--main-color);
 }
-.form-box {
-  display: flex;
-  flex-direction: column;
-  border: none;
-  padding: 0;
-  margin: 0 0 20px 0;
-}
-
-.form-box label {
+.form-label {
+  position: relative;
   display: flex;
   flex-direction: column;
   font-size: 12px;
   line-height: 1.16;
   letter-spacing: 0.01em;
   color: var(--third-color);
-  padding-bottom: 4px;
+  gap: 4px;
 }
-
-.form-box input {
+.form-input {
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
   height: 40px;
-  width: 448px;
+  width: 100%;
   margin-bottom: 10px;
   padding: 0 0 0 42px;
   transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.form-box input:active {
-  border: 1px solid var(--backlight-color);
+.form-icon-svg {
+  position: absolute;
+  left: 12px;
+  top: 28px;
+  fill: var(--main-color);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.form-input:hover,
+.form-input:focus {
+  outline: none;
+  border-color: var(--backlight-color);
+}
+.form-input:focus + .form-icon-svg {
+  fill: var(--backlight-color);
+}
+.form-input:hover + .form-icon-svg {
+  fill: var(--backlight-color);
 }
 
-.form-box input:hover {
-  border: 1px solid var(--backlight-color);
-}
-.form-box input:focus {
-  border: 1px solid var(--backlight-color);
-}
-
-.form-box textarea {
+.form-text {
   height: 120px;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
   padding: 12px 16px;
   resize: none;
 }
-.form-box textarea:hover {
-  border: 1px solid var(--backlight-color);
+.form-text:hover {
+  border-color: var(--backlight-color);
 }
-.form-box textarea:focus {
-  border: 1px solid var(--backlight-color);
+.form-text:focus {
+  border-color: var(--backlight-color);
+  outline: none;
 }
-.form-box textarea::placeholder {
+.form-text::placeholder {
   color: rgba(117, 117, 117, 0.5);
 }
-.form-icon {
+
+.form-terms {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  gap: 24px;
+}
+.form-terms-label {
   position: relative;
 }
-
-.form-icon-svg {
-  position: absolute;
-  top: 11px;
-  left: 12px;
-  fill: currentColor;
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.form-icon-svg:hover {
-  fill: var(--backlight-color);
-}
-.form-terms {
-  margin-bottom: 30px;
+.form-terms-text {
   font-size: 14px;
   line-height: 1.71;
   color: var(--third-color);
-  display: flex;
-  align-items: center;
-  padding-left: 15px;
-  gap: 8px;
 }
-.form-terms input[type='checkbox'] {
-  margin: 0;
+.form-terms-input {
   appearance: none;
-  width: 16px;
 }
 .form-terms-links {
-  position: relative;
   color: var(--backlight-color);
   text-decoration: underline;
 }
 
 .form-terms-box {
   position: absolute;
+  left: 0;
+  top: 0;
   border-radius: 2px;
+  fill: var(--main-color);
+  stroke: var(--main-color);
 }
-.form-terms-box:hover,
 .form-terms-box:focus {
   fill: var(--backlight-color);
+  stroke: var(--backlight-color);
+  outline: none;
 }
-
 .form-terms-svg {
   position: absolute;
+  left: 0;
+  top: 0;
   opacity: 0;
+  z-index: 1;
+  background-color: var(--backlight-color);
+  border-radius: 2px;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.form-terms input[type='checkbox']:checked + .form-terms-svg {
+
+.form-terms-input:checked + .form-terms-svg {
   opacity: 1;
 }
 .form-button-send {
@@ -673,12 +684,11 @@ button:focus {
   display: flex;
   gap: 12px;
 }
-.mail-text {
-  padding: 15px, 15px, 33px, 34px;
-}
+
 .border-mail {
   width: 358px;
   height: 50px;
+  color: var(--background-color);
   border: 1px solid rgba(255, 255, 255, 0.3);
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
   border-radius: 4px;
@@ -693,7 +703,8 @@ button:focus {
 .border-mail:hover,
 .border-mail:focus {
   background-color: var(--backlight-color);
-  border: 1px solid var(--backlight-color);
+  border-color: var(--backlight-color);
+  outline: none;
 }
 .border-mail::placeholder {
   color: rgba(255, 255, 255, 0.6);
@@ -702,7 +713,7 @@ button:focus {
 .border-mail:hover::placeholder {
   color: var(--background-color);
 }
-.mail-text:focus::placeholder {
+.border-mail:focus::placeholder {
   color: var(--background-color);
 }
 
